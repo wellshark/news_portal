@@ -74,6 +74,9 @@ body {
 .close-icon:before {
   transform: rotate(45deg);
 }
+.hide{
+  display: none;
+}
 .button-close{
   @extend %circle;
   height: 30px;
