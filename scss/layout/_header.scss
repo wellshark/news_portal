@@ -1,0 +1,34 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 4px #bcc0c3;
+  &__add-news{
+    margin-right: 10px;
+  }
+  &__buttons-wrap {
+    display: flex;
+    //align-items: center;
+  }
+}
+@media (max-width: $breakpoint-mobile) {
+  .header{
+    //flex-direction: column;
+    &__buttons-wrap{
+      //display: flex;
+      flex-direction: column;
+      width: 160px;
+    }
+    &__add-news{
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    &__logo{
+      //width: calc(30% - 20px);
+
+    }
+  }
+}

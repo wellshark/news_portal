@@ -1,0 +1,12 @@
+.sign-in{
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+    &__form{
+      display: flex;
+      flex-direction: column;
+    }
+    &__title{
+      text-align: center;
+    }
+}
