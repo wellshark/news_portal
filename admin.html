@@ -17,7 +17,7 @@
         <button class="button-sm button_danger log-out">Выйти</button>
     </div>
 </header>
-<div class="modal hide">
+<div class="modal modal__add-article hide">
     <div class="modal__cover"></div>
     <div class="modal__content position-center">
         <button class="modal__close button-close modal__button-close">
@@ -25,11 +25,23 @@
         </button>
         <h2 class="modal__title">Создание новости:</h2>
         <form class="form modal__form">
-            <!--<textarea type="email" placeholder="Email address" class="input mb-10">-->
             <textarea class="textarea mb-20 textarea-title" name="title" cols="10" rows="2" placeholder="Заглавие" ></textarea>
             <textarea class="textarea mb-20 textarea-description" name="description" cols="30" rows="5" placeholder="Содержание"></textarea>
-            <!--<input type="password" placeholder="Password" class="input mb-20">-->
             <button class="button-lg button_blue modal__save">Сохранить</button>
+        </form>
+    </div>
+</div>
+<div class="modal modal__change-article hide">
+    <div class="modal__cover"></div>
+    <div class="modal__content position-center">
+        <button class="modal__close button-close modal__button-close">
+            <span class="close-icon"></span>
+        </button>
+        <h2 class="modal__title">Редактирование новости:</h2>
+        <form class="form modal__form">
+            <textarea class="textarea mb-20 textarea-title" name="title" cols="10" rows="2" placeholder="Заглавие" ></textarea>
+            <textarea class="textarea mb-20 textarea-description" name="description" cols="30" rows="5" placeholder="Содержание"></textarea>
+            <button class="button-lg button_blue modal__edit">Сохранить</button>
         </form>
     </div>
 </div>
@@ -41,27 +53,15 @@
             <!--передает The Block со ссылкой на местные СМИ. Программа будет осуществляться в два этапа и задействует 2-->
             <!--города: Шэньчжэнь и Сучжоу.-->
         <!--</p>-->
-    <!--</div>-->
-    <!--<div class="news__item">-->
-        <!--<h3 class="news__title">Когда Китай начнет тестировать свою криптовалюту.</h3>-->
-        <!--<p class="news__description mt-10">-->
-            <!--Народный банк Китая перейдет к фазе тестирования своей цифровой платежной системы до конца 2019 года,-->
-            <!--передает The Block со ссылкой на местные СМИ. Программа будет осуществляться в два этапа и задействует 2-->
-            <!--города: Шэньчжэнь и Сучжоу.-->
-        <!--</p>-->
-    <!--</div>-->
-    <!--<div class="news__item">-->
-        <!--<h3 class="news__title">Когда Китай начнет тестировать свою криптовалюту.</h3>-->
-        <!--<p class="news__description mt-10">-->
-            <!--Народный банк Китая перейдет к фазе тестирования своей цифровой платежной системы до конца 2019 года,-->
-            <!--передает The Block со ссылкой на местные СМИ. Программа будет осуществляться в два этапа и задействует 2-->
-            <!--города: Шэньчжэнь и Сучжоу.-->
-        <!--</p>-->
+        <!--<div class="news__control-buttons">-->
+            <!--<img class="edit-article" src="assets/img/edit.png">-->
+            <!--<img class="delete-article" src="assets/img/delete.png" width="24" height="24">-->
+        <!--</div>-->
+
     <!--</div>-->
 
 </main>
 <!--build:js js/main.min.js -->
-<!--<script src="js/libs/jquery-3.4.1.min.js"></script>-->
 <script src="js/admin.js"></script>
 <!-- endbuild -->
 </body>

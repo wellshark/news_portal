@@ -10,6 +10,7 @@
     height: 100%;
     background: $black;
     opacity: 0.6;
+    z-index: 1;
   }
   &__content{
     position: fixed;
@@ -25,6 +26,7 @@
     max-width: 500px;
     width: 95%;
     box-sizing: border-box;
+    z-index: 2;
     //z-index: 10000;
   }
   &__form{

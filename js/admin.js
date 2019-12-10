@@ -9,7 +9,8 @@ class Admin {
         this.description_input = document.querySelector('.textarea-description');
         this.save_btn = document.querySelector('.modal__save');
         this.news_wrapp = document.querySelector('.news');
-
+        this.edit_article_btn = document.querySelector('.edit-article');
+        this.delete_article_btn = document.querySelectorAll('.delete-article');
     }
 
     modalToggleHide() {
@@ -22,40 +23,73 @@ class Admin {
     }
 
     addArticle(e) {
-        const article = JSON.stringify({title: this.title_input.value, description: this.description_input.value});
-        localStorage.setItem(localStorage.length.toString(), article);
+        const newArticle = {title: this.title_input.value, description: this.description_input.value}
+        let array_obj = [];
+        if (localStorage.getItem('news')) {
+            array_obj = JSON.parse(localStorage.getItem('news'));
+        }
+        array_obj.push(newArticle);
+        localStorage.setItem('news', JSON.stringify(array_obj));
         this.modalToggleHide();
+        this.showArticle(newArticle);
         e.preventDefault();
     }
 
+
     showAllNews() {
-        let map = new Map();
-        for (let i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
-            let obj = JSON.parse(localStorage.getItem(key));
-            map.set(key, obj);
-        }
-        for (let i = 0; i < map.size; i++) {
-            let article_obj = map.get(i.toString());
-            let article_node = document.createElement('div');
-            article_node.className = "news__item";
-            article_node.innerHTML = "<h3 class=\"news__title\">" + article_obj.title + " </h3>" +
-                "<p class=\"news__description mt-10\">\n" + article_obj.description + "</p>";
-            this.news_wrapp.append(article_node);
+        let allNews = JSON.parse(localStorage.getItem('news'));
+        for (let article of allNews) {
+            this.showArticle(article)
         }
     }
 
-    editArticle() {
+    showArticle(article) {
+        let article_node = document.createElement('div');
+        article_node.className = "news__item";
+        article_node.innerHTML = "<h3 class=\"news__title\">" + article.title + " </h3>" +
+            "<p class=\"news__description mt-10\">\n" + article.description + "</p>" +
+            "<div class=\"news__control-buttons\">\n" +
+            "            <img class=\"edit-article\" src=\"assets/img/edit.png\">\n" +
+            "            <img class=\"delete-article\" src=\"assets/img/delete.png\" width=\"24\" height=\"24\">\n" +
+            "        </div>"
+        ;
+        article_node.querySelector('.delete-article').addEventListener('click', (e) => this.deleteArticle(e));
+        article_node.querySelector('.edit-article').addEventListener('click', (e) => this.editArticle(e));
+        this.news_wrapp.append(article_node);
 
     }
 
-    deleteArticle() {
 
+    editArticle(e) {
+        let article_description = e.target.parentElement.parentElement.querySelector('.news__description').innerText;
+        let array_news = [];
+        if (localStorage.getItem('news')) {
+            array_news = JSON.parse(localStorage.getItem('news'));
+        }
+        console.log(array_news[this.searchArticle(array_news, article_description)]);
+        this.modalToggleHide();
     }
 
-    showArticles() {
-
+    searchArticle(arr, key) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].description === key) {
+                return i;
+            }
+        }
     }
+
+    deleteArticle(e) {
+        let article_description = e.target.parentElement.parentElement.querySelector('.news__description').innerText;
+        let array_news = [];
+        if (localStorage.getItem('news')) {
+            array_news = JSON.parse(localStorage.getItem('news'));
+        }
+        array_news.splice(this.searchArticle(array_news, article_description), 1);
+        localStorage.setItem('news', JSON.stringify(array_news));
+
+        e.target.parentElement.parentElement.remove();
+    }
+
 
     addEventsListeners() {
         this.log_out_btn.addEventListener('click', () => this.logOut());
@@ -70,6 +104,6 @@ class Admin {
 }
 
 const admin = new Admin();
+admin.showAllNews();
 // admin.clearLocalStorage();
 admin.addEventsListeners();
-admin.showNews();
