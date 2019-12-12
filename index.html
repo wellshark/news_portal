@@ -9,31 +9,24 @@
 </head>
 <body>
 <header class="header container">
-    <!--<div class="">-->
-        <div class="logo">News portal</div>
-    <!--</div>-->
+    <div class="logo">News portal</div>
 </header>
-<div class="error-messages">
-    <div class="error-messages__item">
-        <div class="error-messages__title">Адрес эелектронной почты введен неверно</div>
-        <div class="error-messages__description">Адрес электронной почты должен содержать символ @ и домен</div>
-    </div>
-    <div class="error-messages__item">
-        <div class="error-messages__title">Пароль введен неверно</div>
-        <div class="error-messages__description">Пароль должен содержать 8 символов</div>
-    </div>
+<div class="error-messages js-error-messages">
+
+    Неправильный логин или пароль!
+
 </div>
 <main class="sign-in position-center">
-    <form class="form sign-in__form" >
+    <form class="form sign-in__form">
         <h2 class="sign-in__title mb-20">Please sign in</h2>
-        <input type="email" placeholder="Email address" class="email input mb-10">
-        <input type="password" placeholder="Password" class="password input mb-20">
-        <button class="button-lg button_gray "> Sign in</button>
+        <input type="email" placeholder="Email address" class="js-email input mb-10">
+        <input type="password" placeholder="Password" class="js-password input mb-20" maxlength="8">
+        <button class="button-lg button_gray js-sign-in"> Sign in</button>
     </form>
 </main>
 <!--build:js js/main.min.js -->
 <!--<script src="js/libs/jquery-3.4.1.min.js"></script>-->
-<script src="js/login.js"></script>
+<script src="js/authorization.js"></script>
 <!-- endbuild -->
 </body>
 </html>

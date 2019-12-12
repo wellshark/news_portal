@@ -463,6 +463,7 @@ body {
   padding: 10px;
   font-size: 16px;
   font-weight: 400;
+  line-height: 1;
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
@@ -507,16 +508,14 @@ body {
   width: 100%;
   margin-left: 10px;
   max-width: 300px;
-  padding: 20px 20px 0 20px;
+  padding: 10px 20px;
+  line-height: 1.5;
   border-radius: 5px;
   border: 1px solid #f5c6cb;
   background-color: #f8d7da;
-  color: #721c24; }
-  .error-messages__title {
-    font-weight: 600;
-    margin-bottom: 8px; }
-  .error-messages__description {
-    margin-bottom: 20px; }
+  color: #721c24;
+  opacity: 0;
+  transition: opacity 0.4s linear; }
 
 .input:focus {
   color: #495057;
