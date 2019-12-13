@@ -11,24 +11,17 @@
   }
   &__buttons-wrap {
     display: flex;
-    //align-items: center;
   }
 }
 @media (max-width: $breakpoint-mobile) {
   .header{
-    //flex-direction: column;
     &__buttons-wrap{
-      //display: flex;
       flex-direction: column;
       width: 160px;
     }
     &__show-modal{
       margin-right: 0;
       margin-bottom: 10px;
-    }
-    &__logo{
-      //width: calc(30% - 20px);
-
     }
   }
 }

@@ -13,15 +13,14 @@ class LogIn {
             'admin': 1,
             'user': 2
         };
-        this.addEventsListeners();
+        this.bindEventsListeners();
     }
 
-    addEventsListeners() {
+    bindEventsListeners() {
         this.emailInput.addEventListener('keyup', () => this.changerSignInBtnColor());
         this.passwordInput.addEventListener('keyup', () => this.changerSignInBtnColor());
         this.logInBtn.addEventListener('click', (e) => this.authorization(e));
     }
-
 
     changerSignInBtnColor() {
         if (this.isInputsValid()) {
@@ -47,12 +46,10 @@ class LogIn {
         }
     }
 
-
     isInputsValid() {
         let pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return pattern.test(this.emailInput.value) && this.passwordInput.value.length === this.requiredPasswordLength;
     }
-
 
     authorization(event) {
         event.preventDefault();
